@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Arshita | Frontend Developer</title>
+
+<!-- Bootstrap & Icons -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+<style>
+*{scroll-behavior:smooth}
+body{
+  font-family:'Poppins',sans-serif;
+  background:#020617;
+  color:#e5e7eb;
+}
+
+/* Sidebar */
+.sidebar{
+  position:fixed;
+  width:260px;
+  height:100vh;
+  background:#020617;
+  padding:30px;
+  border-right:1px solid rgba(255,255,255,.1);
+}
+.sidebar a{
+  display:block;
+  margin:15px 0;
+  color:#cbd5f5;
+  text-decoration:none;
+  transition:.3s;
+}
+.sidebar a:hover{
+  color:#38bdf8;
+  transform:translateX(10px);
+}
+
+/* Sidebar Photo */
+.sidebar-pic{
+  width:120px;
+  height:120px;
+  border-radius:50%;
+  object-fit:cover;
+  border:4px solid rgba(56,189,248,.6);
+  box-shadow:0 0 25px rgba(56,189,248,.8);
+  animation:floatPic 6s ease-in-out infinite;
+  margin-bottom:15px;
+}
+@keyframes floatPic{50%{transform:translateY(-12px)}}
+
+/* Main */
+.main{
+  margin-left:280px;
+  padding:60px;
+}
+section{margin-bottom:120px}
+
+/* Hero */
+.hero{
+  min-height:90vh;
+  position:relative;
+  display:flex;
+  align-items:center;
+  background:radial-gradient(circle at top,#1e293b,#020617);
+  border-radius:30px;
+  padding:60px;
+  overflow:hidden;
+}
+.hero-content{
+  display:grid;
+  grid-template-columns:1.4fr 1fr;
+  gap:40px;
+  align-items:center;
+}
+
+/* Blobs */
+.blob{
+  position:absolute;
+  width:260px;
+  height:260px;
+  background:radial-gradient(circle,#38bdf8,transparent 70%);
+  filter:blur(60px);
+  opacity:.4;
+  animation:blobMove 10s infinite alternate;
+}
+.blob.one{top:10%;right:20%}
+.blob.two{bottom:10%;left:15%;animation-delay:3s}
+@keyframes blobMove{to{transform:translate(40px,-30px)}}
+
+/* Icons */
+.tech-icons i{
+  position:absolute;
+  font-size:42px;
+  color:#38bdf8;
+  opacity:.25;
+  animation:techFloat 8s infinite ease-in-out;
+}
+.tech-icons i:nth-child(1){top:15%;left:10%}
+.tech-icons i:nth-child(2){bottom:20%;left:15%;animation-delay:1s}
+.tech-icons i:nth-child(3){top:25%;right:20%;animation-delay:2s}
+.tech-icons i:nth-child(4){bottom:25%;right:10%;animation-delay:3s}
+@keyframes techFloat{50%{transform:translateY(-25px) rotate(10deg)}}
+
+/* Code BG */
+.code-bg{
+  position:absolute;
+  left:30px;
+  bottom:40px;
+  font-family:monospace;
+  font-size:14px;
+  opacity:.15;
+  animation:scrollCode 15s linear infinite;
+}
+@keyframes scrollCode{to{transform:translateY(-50%)}}
+
+/* Buttons */
+.glow-btn{
+  background:#38bdf8;
+  color:#020617;
+  padding:15px 40px;
+  border-radius:40px;
+  text-decoration:none;
+  box-shadow:0 0 30px #38bdf8;
+  animation:pulse 2s infinite;
+}
+.glow-btn:hover{transform:scale(1.1);box-shadow:0 0 70px #38bdf8}
+@keyframes pulse{50%{box-shadow:0 0 60px #38bdf8}}
+
+/* Glass */
+.glass{
+  background:rgba(255,255,255,.05);
+  backdrop-filter:blur(15px);
+  border-radius:20px;
+  padding:25px;
+  border:1px solid rgba(255,255,255,.1);
+  transition:.4s;
+}
+.glass:hover{transform:translateY(-12px)}
+
+/* Skills */
+.skill{background:#1e293b;border-radius:20px;margin-bottom:15px}
+.fill{height:10px;background:linear-gradient(90deg,#38bdf8,#818cf8);animation:fill 2s forwards}
+@keyframes fill{to{width:var(--w)}}
+
+/* Projects */
+.project-card img{width:100%;border-radius:15px;margin-bottom:15px}
+.project-links a{
+  margin:5px;
+  padding:8px 16px;
+  border-radius:20px;
+  background:#38bdf8;
+  color:#020617;
+  text-decoration:none;
+}
+
+/* Social */
+.social a{font-size:30px;margin:15px;color:#38bdf8}
+.social a:hover{color:white;text-shadow:0 0 20px #38bdf8}
+
+footer{text-align:center;color:#94a3b8}
+@media(max-width:900px){.hero-content{grid-template-columns:1fr}.code-bg{display:none}}
+</style>
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+<div class="sidebar text-center">
+  <img src="ArshitaParmar.jpg" class="sidebar-pic">
+  <h4>Arshita Parmar</h4>
+  <small>Enthusiast Mern Stack</small>
+  <hr>
+  <a href="#home">Home</a>
+  <a href="#Career Objective">Career Objective</a>
+  <a href="#Education">Education</a>
+  <a href="#internship">Internship</a>
+  <a href="#internship">Certification</a>
+  <a href="#projects">Projects</a>
+  <a href="#skills">Skills</a>
+  <a href="#resume">Resume</a>
+  <a href="#profiles">Profiles</a>
+  <a href="#contact">Contact</a>
+</div>
+
+<div class="main">
+
+<!-- HOME -->
+<section id="home" class="hero" data-aos="zoom-in">
+  <div class="blob one"></div>
+  <div class="blob two"></div>
+  <div class="tech-icons">
+    <i class="bi bi-filetype-html"></i>
+    <i class="bi bi-filetype-css"></i>
+    <i class="bi bi-filetype-js"></i>
+    <i class="bi bi-bootstrap"></i>
+  </div>
+
+  <div class="hero-content">
+    <div>
+      <h1>Hello, I'm Arshita </h1>
+      <h3><span id="type"></span><span class="text-info"> |</span></h3>
+      <p class="lead">I build modern, animated & responsive websites.</p>
+    </div>
+    <div class="cta-box">
+      <h3>Let’s Work Together</h3>
+      <a href="#contact" class="glow-btn">Hire Me</a>
+    </div>
+  </div>
+
+  <div class="code-bg">
+    &lt;h1&gt;Frontend Developer&lt;/h1&gt;<br>
+    &lt;p&gt;Building UI with passion&lt;/p&gt;
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="glass">
+    <h2>Career Objective</h2>
+    <p>I am an aspiring MERN Stack Developer with a strong interest in Frontend and Full-Stack Development. I am currently learning modern web technologies such as HTML, CSS, JavaScript, and I enjoy creating responsive, user-friendly, and visually appealing web applications. I am eager to apply my skills to real-world projects, continuously enhance my technical knowledge, and grow as a professional developer while contributing effectively to an organization’s success.</p>
+  </div>
+</section>
+
+
+
+<!-- education -->
+<section id="education">
+  <h2>Education</h2>
+  <div class="row g-4">
+    <div class="col-md-4">
+      <div class="glass" data-aos="fade-up">
+        <h5>Graduation</h5>
+        <small>Sage University, Indore| 2022-2026</small>
+        <p>B.Tech in Computer Science Engineering| CGPA: 8.18</p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="glass" data-aos="fade-up">
+        <h5>12th Standard</h5>
+        <small>Shree Sharda Higher Secondary School, Barnagar | 2022</small>
+        <p>Percentage: 72%</p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="glass" data-aos="fade-up">
+        <h5>10th Standard</h5>
+        <small>Oasis Academy School, Runija | 2020</small>
+        <p>Percentage: 81%</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<!-- INTERNSHIP -->
+<section id="internship">
+  <h2>Internship</h2>
+  <div class="glass">
+    <h5>Web Development </h5>
+    <small>VaultOfCodes | 05-11-2025 TO 05-12-2025</small>
+    <ul>
+      <li>Completed an online, AICTE-approved internship in Web Development. Developed a responsive bakery website using HTML, CSS, and Bootstrap, gaining hands-on experience in frontend development and responsive UI design.</li>
+      <!-- <li> </li> -->
+    </ul>
+  </div>
+</section>
+
+<!-- certification -->
+ <section id="internship">
+  <h2>Certification</h2>
+  <div class="glass">
+    <h5>Web Development</h5>
+    <small>Udemy | 24-12-2024</small>
+    <ul>
+      <li>Completed a practical web development certification focused on building modern and responsive websites. Gained hands-on experience with HTML, CSS, JavaScript, and Bootstrap. Developed real-world projects that strengthened problem-solving and UI design skills. Learned to convert requirements into clean, user-friendly web interfaces. Demonstrated strong self-learning ability and continuous improvement mindset.</li>
+    
+    </ul>
+  </div>
+</section>
+<section id="internship">
+  <div class="glass">
+    <h5>TCS iON (IT and NON-IT)</h5>
+    <small>TCS iON | 01-01-2025 to 15-01-2025</small>
+    <ul>
+      <li>
+Focus: Essential IT industry overview, business tools, UI/UX, basic programming, trending tech (AI, Cloud, Data Science).</li>
+<li>Benefit: Bridges the gap for non-IT professionals to understand the tech landscape.</li>
+<li>Format: 5 modules, 2 weeks, self-paced.</li>
+    
+    </ul>
+  </div>
+</section>
+</section>
+<section id="internship">
+  <div class="glass">
+    <h5>TCS iON (Young professionals)</h5>
+    <small>TCS iON | 02-01-2025 to 16-01-2025</small>
+    <ul>
+      <li>
+The TCS iON Career Edge - Young Professional certificate is from a free, 15-day online course designed to build core employability skills for students and freshers, covering communication, business etiquette, IT basics, AI fundamentals, and interview readiness through self-paced videos, assignments, and expert insights, leading to a verifiable digital certificate upon passing an assessment, offering a vital bridge from academics to corporate life. </li>
+
+    
+    </ul>
+  </div>
+</section>
+<!-- PROJECTS -->
+<section id="projects">
+  <h2>Projects</h2>
+  <div class="glass project-card">
+    <img src="Bakery.jpg">
+    <h5>Whisk & Wish</h5>
+    <h6>Whisk & Wish is a simple, clean, and user-friendly bakery website designed to effectively showcase bakery products and provide essential information to customers. The website features well-structured sections such as featured products, a product gallery, and contact information, allowing users to easily explore offerings and connect with the bakery. Special emphasis was placed on creating a visually appealing layout with a smooth user experience.</h6>
+
+<h5>Technologies Used:</h5>
+<h6>HTML | CSS | Bootstrap</h6>
+    <div class="project-links">
+      <a href="https://resonant-youtiao-f82fdc.netlify.app/">Live</a>
+      <a href="https://github.com/arshitaparmar31/HTML-CSS-Bootstrap/tree/main/WhiskandWish">GitHub</a>
+      <!-- <a href="#">README</a> -->
+    </div>
+  </div>
+</section>
+  <section id="projects">
+ <div class="glass project-card">
+    <img src="DL.jpg">
+    <h5>Digital Library</h5>
+    <h6>The Digital Library is a static website developed using HTML and CSS. It provides a well-structured platform to explore library resources in a clean and user-friendly layout. The website includes an About Us section that describes the purpose of the digital library and a Contact Us section for user communication. This project highlights the use of HTML for content structure and CSS for styling, layout, and visual enhancement, making the website informative and easy to navigate.</h6>
+
+<h5>Technologies Used:</h5>
+<h6>HTML | CSS</h6>
+    <div class="project-links">
+      <a href="https://quiet-wisp-742da7.netlify.app/">Live</a>
+      <a href="https://github.com/arshitaparmar31/HTML-CSS-Bootstrap/tree/main/Digital%20library">GitHub</a>
+      <!-- <a href="#">README</a> -->
+    </div>
+  </div>
+  </section>
+
+  <section id="projects">
+  <div class="glass project-card">
+    <img src="fashion.jpg">
+    <h5>Fashion Hub</h5>
+    <h6>Fashion Hub is a women’s fashion website designed using only HTML. The website includes a login page for user access and a showcase section that displays a variety of trendy women’s clothing. It focuses on a clean layout and structured content to present outfits clearly and attractively. This project demonstrates the use of HTML for creating web pages, forms, navigation, and product display without using any additional technologies.</h6>
+
+<h5>Technologies Used:</h5>
+<h6>HTML</h6>
+    <div class="project-links">
+      <a href="https://teal-kataifi-3fcb78.netlify.app/">Live</a>
+      <a href="https://github.com/arshitaparmar31/HTML-CSS-Bootstrap/tree/main/Fashion">GitHub</a>
+      <!-- <a href="#">README</a> -->
+    </div>
+  </div>
+</section>
+
+
+  
+
+<!-- SKILLS -->
+<section id="skills">
+  <h2>Skills</h2>
+  <div class="glass">
+    HTML<div class="skill"><div class="fill" style="--w:100%"></div></div>
+    CSS<div class="skill"><div class="fill" style="--w:90%"></div></div>
+    Bootstrap<div class="skill"><div class="fill" style="--w:85%"></div></div>
+    JavaScript<div class="skill"><div class="fill" style="--w:65%"></div></div>
+    Java<div class="skill"><div class="fill" style="--w:75%"></div></div>
+  </div>
+</section>
+
+<!-- RESUME -->
+<section id="resume">
+  <h2>Resume</h2>
+  <div class="glass text-center">
+    <a href="ArshitaParmarP.pdf" target="_blank" class="glow-btn">View Resume</a>
+  </div>
+</section>
+
+<!-- PROFILES -->
+<section id="profiles">
+  <h2>Online Profiles</h2>
+  <div class="glass social text-center">
+    <a href="https://github.com/arshitaparmar31"><i class="bi bi-github"></i></a>
+    <a href="https://www.linkedin.com/in/arshita-parmar-82168a2a7/"><i class="bi bi-linkedin"></i></a>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <h2>Contact</h2>
+  <div class="row g-4">
+    <div class="col-md-5">
+      <div class="glass">
+        📞 +91-9424653155<br><br>
+        📧 arshitaparmar31@gmail.com<br><br>
+        📍 Indore, Madhya Pradesh, India
+      </div>
+    </div>
+
+    <!-- <div class="col-md-7">
+      <div class="glass">
+        <input id="name" class="form-control mb-3" placeholder="Your Name">
+        <input id="email" class="form-control mb-3" placeholder="Your Email">
+        <textarea id="message" class="form-control mb-3" placeholder="Your Message"></textarea>
+        <button onclick="sendMessage()" class="glow-btn">Send Message</button>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+<footer>© 2026 Arshita Parmar</footer>
+</div>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+AOS.init({duration:1200});
+
+const words=["Frontend Developer","Creative Coder"];
+let i=0,j=0,d=false;
+setInterval(()=>{
+  document.getElementById("type").innerText=words[i].slice(0,j);
+  d?j--:j++;
+  if(j===words[i].length+1)d=true;
+  if(j===0){d=false;i=(i+1)%words.length}
+},120);
+
+function sendMessage(){
+  const n=name.value,e=email.value,m=message.value;
+  if(!n||!e||!m){alert("Please fill all fields");return;}
+  window.location.href=`mailto:arshita@email.com?subject=Hire Me&body=Name:${n}%0AEmail:${e}%0AMessage:${m}`;
+}
+</script>
+
+</body>
+</html>
