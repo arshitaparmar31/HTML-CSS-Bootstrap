@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arshita | Frontend Developer</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+<style>
+*{scroll-behavior:smooth}
+body{font-family:'Poppins',sans-serif;background:#020617;color:#e5e7eb;margin:0;padding:0;}
+
+/* Hamburger */
+.menu-btn{
+  display:none;
+  position:fixed;
+  top:18px;
+  left:18px;
+  font-size:30px;
+  color:#38bdf8;
+  z-index:1200;
+  cursor:pointer;
+}
+
+/* Sidebar */
+.sidebar{
+  position:fixed;width:260px;height:100vh;background:#020617;
+  padding:30px;border-right:1px solid rgba(255,255,255,.1);
+  transition:.4s;z-index:1100;
+}
+.sidebar a{display:block;margin:15px 0;color:#cbd5f5;text-decoration:none;transition:.3s}
+.sidebar a:hover,
+.sidebar a.active{color:#38bdf8;font-weight:600;transform:translateX(10px);}
+
+/* Sidebar Photo */
+.sidebar-pic{
+  width:120px;height:120px;border-radius:50%;
+  border:4px solid rgba(56,189,248,.6);
+  box-shadow:0 0 25px rgba(56,189,248,.8);
+  animation:floatPic 6s ease-in-out infinite;margin-bottom:15px;
+}
+@keyframes floatPic{50%{transform:translateY(-12px)}}
+
+
+/* scroll */
+.sidebar{
+  position:fixed;
+  width:260px;
+  height:100vh;
+  background:#020617;
+  padding:30px;
+  border-right:1px solid rgba(255,255,255,.1);
+  transition:.4s;
+  z-index:1100;
+
+  /* ✅ ADD THIS */
+  overflow-y:auto;
+}
+
+
+
+/* Main */
+.main{margin-left:280px;padding:60px;transition:margin-left 0.4s;}
+section{margin-bottom:120px}
+
+/* Hero */
+.hero{
+  min-height:90vh;
+  background:radial-gradient(circle at top,#1e293b,#020617);
+  border-radius:30px;
+  padding:60px;
+  position:relative;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+}
+.hero-content{display:grid;grid-template-columns:1.4fr 1fr;gap:40px}
+
+/* Blobs */
+.blob{position:absolute;width:260px;height:260px;background:radial-gradient(circle,#38bdf8,transparent 70%);filter:blur(60px);opacity:.4;animation:blobMove 10s infinite alternate}
+.blob.one{top:10%;right:20%}
+.blob.two{bottom:10%;left:15%;animation-delay:3s}
+@keyframes blobMove{to{transform:translate(40px,-30px)}}
+
+/* Icons */
+.tech-icons i{position:absolute;font-size:42px;color:#38bdf8;opacity:.25;animation:techFloat 8s infinite ease-in-out}
+.tech-icons i:nth-child(1){top:15%;left:10%}
+.tech-icons i:nth-child(2){bottom:20%;left:15%}
+.tech-icons i:nth-child(3){top:25%;right:20%}
+.tech-icons i:nth-child(4){bottom:25%;right:10%}
+@keyframes techFloat{50%{transform:translateY(-25px) rotate(10deg)}}
+
+/* Code BG */
+.code-bg{position:absolute;left:30px;bottom:40px;font-family:monospace;font-size:14px;opacity:.15;animation:scrollCode 15s linear infinite}
+@keyframes scrollCode{to{transform:translateY(-50%)}}
+
+/* Buttons */
+.glow-btn{background:#38bdf8;color:#020617;padding:15px 40px;border-radius:40px;text-decoration:none;box-shadow:0 0 30px #38bdf8;animation:pulse 2s infinite}
+@keyframes pulse{50%{box-shadow:0 0 60px #38bdf8}}
+
+/* Glass */
+.glass{background:rgba(255,255,255,.05);backdrop-filter:blur(15px);border-radius:20px;padding:25px;border:1px solid rgba(255,255,255,.1)}
+.glass:hover{transform:translateY(-12px)}
+
+/* Skills */
+.skill{background:#1e293b;border-radius:20px;margin-bottom:15px}
+.fill{height:10px;background:linear-gradient(90deg,#38bdf8,#818cf8);animation:fill 2s forwards}
+@keyframes fill{to{width:var(--w)}}
+
+/* Projects */
+.project-card img{width:100%;border-radius:15px;margin-bottom:15px}
+.project-links a{margin:5px;padding:8px 16px;border-radius:20px;background:#38bdf8;color:#020617;text-decoration:none}
+
+/* Social */
+.social a{font-size:30px;margin:15px;color:#38bdf8}
+
+/* Mobile */
+@media(max-width:991px){
+  .menu-btn{display:block}
+  .sidebar{left:-280px}
+  .sidebar.active{left:0}
+  .main{margin-left:0;padding:90px 20px}
+  .hero-content{grid-template-columns:1fr;text-align:center}
+  .code-bg{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- Hamburger Icon -->
+<i class="bi bi-list menu-btn" onclick="toggleMenu()"></i>
+
+<div class="sidebar text-center" id="sidebar">
+  <img src="ArshitaParmar.jpg" class="sidebar-pic">
+  <h4>Arshita Parmar</h4>
+  <small>MERN Stack Enthusiast</small>
+  <hr>
+  <a href="#home" onclick="toggleMenu()">Home</a>
+  <a href="#about" onclick="toggleMenu()">Career Objective</a>
+  <a href="#education" onclick="toggleMenu()">Education</a>
+  <a href="#internship" onclick="toggleMenu()">Internship</a>
+  <a href="#projects" onclick="toggleMenu()">Projects</a>
+  <a href="#skills" onclick="toggleMenu()">Skills</a>
+  <a href="#resume" onclick="toggleMenu()">Resume</a>
+  <a href="#profiles" onclick="toggleMenu()">Profiles</a>
+  <a href="#contact" onclick="toggleMenu()">Contact</a>
+</div>
+
+<div class="main">
+
+<!-- All your sections preserved exactly as original -->
+<section id="home" class="hero" data-aos="zoom-in">
+  <div class="blob one"></div>
+  <div class="blob two"></div>
+  <div class="tech-icons">
+    <i class="bi bi-filetype-html"></i>
+    <i class="bi bi-filetype-css"></i>
+    <i class="bi bi-filetype-js"></i>
+    <i class="bi bi-bootstrap"></i>
+  </div>
+  <div class="hero-content">
+    <div>
+      <h1>Hello, I'm Arshita</h1>
+      <h3><span id="type"></span><span class="text-info"> |</span></h3>
+      <p class="lead">I build modern, animated & responsive websites.</p>
+    </div>
+    <div>
+      <h3>Let’s Work Together</h3>
+      <a href="#contact" class="glow-btn">Hire Me</a>
+    </div>
+  </div>
+  <div class="code-bg">&lt;h1&gt;Frontend Developer&lt;/h1&gt;</div>
+</section>
+
+ <h2>Career Objective</h2>
+<section id="about" class="glass">
+  <!-- <h2>Career Objective</h2> -->
+  <p>I am an aspiring MERN Stack Developer with a strong interest in Frontend and Full-Stack Development. I am currently learning modern web technologies such as HTML, CSS, JavaScript, and I enjoy creating responsive, user-friendly, and visually appealing web applications. I am eager to apply my skills to real-world projects, continuously enhance my technical knowledge, and grow as a professional developer while contributing effectively to an organization’s success.</p>
+</section>
+
+<section id="education">
+  <h2>Education</h2>
+  <div class="row g-4">
+    <div class="col-md-4"><div class="glass">
+      <h4>Graduation</h4>
+       <h6>Sage University, Indore | 2022-2026</h6>
+      B.Tech in Computer Science Engineering | 8.18 CGPA</div></div>
+    <div class="col-md-4"><div class="glass">
+      <h4>12th Standard</h4>
+      <h6>Shree Sharda Higher Secondary School, Barnagar | 2022</h6>
+          Percentage: 72%</div></div>
+    <div class="col-md-4"><div class="glass"><h4>10th Standard</h4>
+     <h6>Oasis Academy School, Runija | 2020</h6>
+          Percentage: 81%</div></div>
+  </div>
+</section>
+
+
+<!-- internship -->
+<h2>Internship</h2>
+<section id="internship" class="glass">
+     <h5>Web Development</h5>
+  <h6>VaultOfCodes | 05-11-2025 to 05-12-2025</h6>
+   <p>Completed an AICTE-approved online internship in Web Development.<br>
+    Developed a responsive bakery website using HTML, CSS, and Bootstrap.<br>
+    Gained hands-on experience in frontend development.<br>
+    Enhanced skills in responsive UI design.</p> 
+    </section>
+
+<!-- certification -->
+<h2>Certification</h2>
+<section id="internship" class="glass">
+     <h5>Web Development</h5>
+  <h6>UDEMY | 24-12-2024</h6>
+   <p>Completed a practical web development certification focused on building modern and responsive websites. Gained hands-on experience with HTML, CSS, JavaScript, and Bootstrap. Developed real-world projects that strengthened problem-solving and UI design skills. Learned to convert requirements into clean, user-friendly web interfaces. Demonstrated strong self-learning ability and continuous improvement mindset.</p>
+</section>
+<section id="internship" class="glass">
+     <h5>Modern AI</h5>
+  <h6>Cisco Networking Academy | 17-01-2026</h6>
+   <p>Completed the Modern AI Certification from Cisco Networking Academy, gaining practical knowledge of AI concepts, machine learning techniques, and real-world AI applications. Developed skills to design, implement, and analyze AI models for problem-solving and innovative solutions.</p>
+</section>
+
+<section id="internship" class="glass">
+     <h5>IT & NON-IT , Young Professional</h5>
+  <h6>TCS iON | 01-01-2025 to 16-01-2025</h6>
+   <p>The TCS iON Career Edge - Young Professional and IT & NON-IT certificate is a free 15-day online course designed to build core employability skills for students and freshers. Covering IT basics, AI fundamentals, business tools, UI/UX, communication, and interview readiness through self-paced modules and expert guidance, it provides a verifiable certificate and bridges the gap from academics to the corporate world.</p>
+</section>
+
+<!-- projects -->
+   <h2>Projects</h2>
+<section id="projects">
+  <div class="glass project-card">
+    <img src="Bakery.jpg">
+    <h5>Whisk & Wish</h5>
+    <p>Whisk & Wish is a simple, clean, and user-friendly bakery website designed to effectively showcase bakery products and provide essential information to customers. The website features well-structured sections such as featured products, a product gallery, and contact information, allowing users to easily explore offerings and connect with the bakery. Special emphasis was placed on creating a visually appealing layout with a smooth user experience.</p>
+
+    <h5>Technologies Used:</h5>
+    <p>HTML | CSS | Bootstrap</p>
+    <div class="project-links">
+      <a href="https://resonant-youtiao-f82fdc.netlify.app/">Live</a>
+      <a href="https://github.com/arshitaparmar31/HTML-CSS-Bootstrap/tree/main/WhiskandWish">GitHub</a>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="glass project-card">
+    <img src="DL.jpg">
+    <h5>Digital Library</h5>
+    <p>The Digital Library is a static website developed using HTML and CSS. It provides a well-structured platform to explore library resources in a clean and user-friendly layout. The website includes an About Us section that describes the purpose of the digital library and a Contact Us section for user communication. This project highlights the use of HTML for content structure and CSS for styling, layout, and visual enhancement, making the website informative and easy to navigate.</p>
+
+    <h5>Technologies Used:</h5>
+    <p>HTML | CSS </p>
+    <div class="project-links">
+      <a href="https://quiet-wisp-742da7.netlify.app/">Live</a>
+      <a href="https://github.com/arshitaparmar31/HTML-CSS-Bootstrap/tree/main/Digital%20library">GitHub</a>
+    </div>
+  </div>
+</section>
+
+
+<section id="projects">
+  <div class="glass project-card">
+    <img src="fashion.jpg">
+    <h5>Fashion Hub</h5>
+    <p>Fashion Hub is a women’s fashion website designed using only HTML. The website includes a login page for user access and a showcase section that displays a variety of trendy women’s clothing. It focuses on a clean layout and structured content to present outfits clearly and attractively. This project demonstrates the use of HTML for creating web pages, forms, navigation, and product display without using any additional technologies.</p>
+
+    <h5>Technologies Used:</h5>
+    <p>HTML</p>
+    <div class="project-links">
+      <a href="https://teal-kataifi-3fcb78.netlify.app/">Live</a>
+      <a href="https://github.com/arshitaparmar31/HTML-CSS-Bootstrap/tree/main/Fashion">GitHub</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- skilss -->
+<section id="skills">
+  <h2>Skills</h2>
+  <div class="glass">
+    HTML<div class="skill"><div class="fill" style="--w:100%"></div></div>
+    CSS<div class="skill"><div class="fill" style="--w:90%"></div></div>
+     Bootstrap<div class="skill"><div class="fill" style="--w:85%"></div></div>
+    JavaScript<div class="skill"><div class="fill" style="--w:65%"></div></div>
+     Core Java<div class="skill"><div class="fill" style="--w:80%"></div></div>
+  </div>
+</section>
+
+<!-- resume -->
+<h2>Resume</h2>
+<section id="resume" class="glass text-center">
+  <a href="ArshitaParmarPOT.pdf" class="glow-btn">View Resume</a>
+</section>
+
+<!-- online profiles -->
+<h2>Online Profiles</h2>
+<section id="profiles" class="glass social text-center">
+  <a href="https://github.com/arshitaparmar31"><i class="bi bi-github"></i></a>
+  <a href="https://www.linkedin.com/in/arshita-parmar-82168a2a7/"><i class="bi bi-linkedin"></i></a>
+</section>
+
+<!-- contact -->
+<h2>Contact</h2>
+<section id="contact" class="glass">
+  📞 +91-9424653155<br>
+  📧 arshitaparmar31@gmail.com <br>
+  📍 Indore, Madhya Pradesh, India
+
+</section>
+
+<footer>© 2026 Arshita Parmar</footer>
+</div>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+AOS.init({duration:1200});
+
+/* Typing effect */
+const words=["Frontend Developer","Creative Coder"];
+let i=0,j=0,d=false;
+setInterval(()=>{
+  document.getElementById("type").innerText=words[i].slice(0,j);
+  d?j--:j++;
+  if(j===words[i].length+1)d=true;
+  if(j===0){d=false;i=(i+1)%words.length}
+},120);
+
+/* Hamburger toggle */
+function toggleMenu(){
+  document.getElementById("sidebar").classList.toggle("active");
+}
+
+/* Scrollspy */
+const sections = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll(".sidebar a");
+window.addEventListener("scroll", () => {
+  let current = "";
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop - 150;
+    const sectionHeight = section.offsetHeight;
+    if(scrollY >= sectionTop && scrollY < sectionTop + sectionHeight){
+      current = section.getAttribute("id");
+    }
+  });
+  navLinks.forEach(link => {
+    link.classList.remove("active");
+    if(link.getAttribute("href") === "#" + current){
+      link.classList.add("active");
+    }
+  });
+});
+</script>
+</body>
+</html>
